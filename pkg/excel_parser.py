@@ -1,6 +1,6 @@
 import pandas as pd
 
 def parse_excel(file):
-  dataframe1 = pd.read_excel(file)
-  dataframe2 = dataframe1.astype('string')
-  return dataframe2
+  raw_dataframe = pd.read_excel(file)
+  df_string = raw_dataframe.astype('string')
+  return df_string
