@@ -34,8 +34,8 @@ def login(browser):
   if not username:
     return
   password = browser.find_element(By.ID, 'password')
-  username.send_keys('ethanmw2000@gmail.com')
-  password.send_keys('Viper135')
+  username.send_keys('')
+  password.send_keys('')
   button = browser.find_element(By.XPATH, "//button[@type= 'submit']")
   button.click()
   return
