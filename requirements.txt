@@ -10,10 +10,12 @@ idna==3.4
 numpy==1.23.4
 openpyxl==3.0.10
 outcome==1.2.0
+packaging==21.3
 pandas==1.5.1
 pdfminer==20191125
 pycparser==2.21
 pycryptodome==3.15.0
+pyparsing==3.0.9
 PyPDF2==2.11.1
 PyPDF4==1.27.0
 PySocks==1.7.1
