@@ -3,8 +3,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+import os
+from dotenv import load_dotenv
 
-def fill_website(file):
+def setup(file):
+  load_dotenv()
   try:
     browser = open_browser()
   except:
@@ -12,21 +15,19 @@ def fill_website(file):
     return
   
   login(browser)
-  browser.get('https://gocreate.com/admin/users')
-  print('Success: got to users')
-  
+  browser.get(os.getenv('USERS_URL'))
     
 
 def set_browser():
   opts = Options()
   opts.add_argument('--headless')
   service = ChromeService(ChromeDriverManager().install())
-  browser = Chrome(options=opts, service=service)
+  browser = Chrome( service=service)
   return browser
 
 def open_browser():
   browser = set_browser()
-  browser.get('https://gocreate.com/login')
+  browser.get(os.getenv('LOGIN_URL'))
   return browser
 
 def login(browser):
@@ -34,8 +35,8 @@ def login(browser):
   if not username:
     return
   password = browser.find_element(By.ID, 'password')
-  username.send_keys('')
-  password.send_keys('')
+  username.send_keys(os.getenv('ADMIN_USERNAME'))
+  password.send_keys(os.getenv('PASSWORD'))
   button = browser.find_element(By.XPATH, "//button[@type= 'submit']")
   button.click()
   return
