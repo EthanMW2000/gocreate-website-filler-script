@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 import os
 from dotenv import load_dotenv
 
-def setup(file):
+def setup():
   load_dotenv()
   try:
     browser = open_browser()
@@ -16,6 +16,7 @@ def setup(file):
   
   login(browser)
   browser.get(os.getenv('USERS_URL'))
+  return browser
     
 
 def set_browser():
