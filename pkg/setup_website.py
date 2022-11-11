@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 import os
 from dotenv import load_dotenv
 
-def setup():
+def setup() -> Chrome:
   load_dotenv()
   try:
     browser = open_browser()
