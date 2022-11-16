@@ -4,9 +4,9 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.support.ui import Select
 
 def set_contact(row: tuple, browser: Chrome):
-  browser.find_element(By.XPATH(
+  browser.find_element(By.XPATH,
     "//a[@data-target='#edit_personal_contact']"
-    )).click()
+    ).click()
   
   address = browser.find_element(By.NAME, 'address')
   user_address = row[1]['Street Address'][:]
@@ -36,6 +36,6 @@ def set_contact(row: tuple, browser: Chrome):
     user_phone = user_phone.split('.')[0]
   phone.send_keys(user_phone)
   
-  browser.find_element(By.XPATH(
+  browser.find_element(By.XPATH,
     "(//button[@type='submit' and contains(., 'Save Changes')])[2]"
-  )).click()
+  ).click()

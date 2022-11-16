@@ -5,6 +5,7 @@ from tkinter.messagebox import Message
 from pkg.set_dob import set_dob
 from set_contact import set_contact
 from set_emergency_contact import set_emergency_contact
+from set_payments import set_payments
 
 
 def fill_users(file: DataFrame, browser: Chrome):
@@ -18,7 +19,7 @@ def fill_users(file: DataFrame, browser: Chrome):
     firstName = row[1]['Full Name'][:].split(' ')[0]
     
     try:
-      user = browser.find_element(By.XAPTH(f"//[@text()='{firstName}']"))
+      user = browser.find_element(By.XAPTH, f"//[@text()='{firstName}']")
     except:
       user_not_found.append(row[1]['Email'][:])
       continue
@@ -30,10 +31,11 @@ def fill_users(file: DataFrame, browser: Chrome):
     
 def fill_info(row: tuple, browser: Chrome):
   set_dob(row, browser)
-  browser.find_element(By.XPATH(
+  browser.find_element(By.XPATH,
     "//input[@type='checkbox' and @data-flag='membership_agreement']"
-    )).click()
+    ).click()
   set_contact(row, browser)
   set_emergency_contact(row, browser)
+  set_payments(row, browser)
   
   
