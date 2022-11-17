@@ -32,6 +32,9 @@ def set_contact(row: tuple, browser: Chrome):
   user_phone = row[1]['Phone Number'][:]
   if '-' in user_phone:
     user_phone = user_phone.replace('-', '')
+  if ('(' in user_phone) or (')' in user_phone):
+    user_phone = user_phone.replace('(', '')
+    user_phone = user_phone.replace(')', '')
   if '.' in user_phone:
     user_phone = user_phone.split('.')[0]
   phone.send_keys(user_phone)
