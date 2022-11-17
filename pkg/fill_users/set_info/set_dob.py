@@ -16,7 +16,7 @@ def set_dob(row: tuple, browser: Chrome):
       
   dob.send_keys(user_dob)
   browser.find_element(By.XPATH,
-    "(//button[@type='submit' and contains(., 'Save Changes')])[1]"
+    "(//button[@type='submit' and contains(., 'Save changes')])[4]"
     ).click()
   
   return
