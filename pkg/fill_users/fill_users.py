@@ -2,10 +2,10 @@ from pandas import DataFrame
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from tkinter.messagebox import Message
-from set_dob import set_dob
-from set_contact import set_contact
-from set_emergency_contact import set_emergency_contact
-from set_payments import set_payments
+from set_info.set_dob import set_dob
+from set_info.set_contact import set_contact
+from set_info.set_emergency_contact import set_emergency_contact
+from set_info.set_payments import set_payments
 
 
 def fill_users(file: DataFrame, browser: Chrome):
