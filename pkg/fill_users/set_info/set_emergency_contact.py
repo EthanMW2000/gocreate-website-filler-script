@@ -45,3 +45,5 @@ def set_emergency_contact(row: tuple, browser: Chrome):
     "(//button[@type='submit' and contains(., 'Save Changes')])[3]"
   ).click()
   
+  return
+  

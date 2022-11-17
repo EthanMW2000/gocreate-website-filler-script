@@ -39,3 +39,5 @@ def set_contact(row: tuple, browser: Chrome):
   browser.find_element(By.XPATH,
     "(//button[@type='submit' and contains(., 'Save Changes')])[2]"
   ).click()
+  
+  return
