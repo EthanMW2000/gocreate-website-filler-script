@@ -1,3 +1,4 @@
+import os
 from pandas import DataFrame
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
@@ -6,6 +7,7 @@ from set_info.set_dob import set_dob
 from set_info.set_contact import set_contact
 from set_info.set_emergency_contact import set_emergency_contact
 from set_info.set_payments import set_payments
+from set_info.set_comment import set_comment
 
 
 def fill_users(file: DataFrame, browser: Chrome):
@@ -36,6 +38,11 @@ def fill_info(row: tuple, browser: Chrome):
     ).click()
   set_contact(row, browser)
   set_emergency_contact(row, browser)
-  set_payments(row, browser)
+  set_comment(row, browser)
+  set_payments(browser)
+  
+  browser.get(os.getenv('USERS_URL'))
+  
+  return
   
   
