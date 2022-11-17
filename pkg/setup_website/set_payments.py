@@ -19,13 +19,11 @@ def set_payments(row: tuple, browser: Chrome):
   return
 
 def generate_enddate(currentdate: datetime.datetime) -> str:
-  #enddate = currentdate + datetime.timedelta(days=30)
-  
-  if (currentdate.month > 5 and currentdate.month < 12):
-    enddate = datetime.datetime(currentdate.year, 12, 31)
-  elif (currentdate.month <= 5):
+  if (currentdate.month <= 5):
     enddate = datetime.datetime(currentdate.year, 5, 31)
   elif (currentdate.month == 12):
     enddate = datetime.datetime(currentdate.year + 1, 5, 31)
+  else:
+    enddate = datetime.datetime(currentdate.year, 12, 31) 
   
   return enddate.strftime("%m/%d/%Y")
