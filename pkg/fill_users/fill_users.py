@@ -2,7 +2,7 @@ from pandas import DataFrame
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from tkinter.messagebox import Message
-from pkg.set_dob import set_dob
+from set_dob import set_dob
 from set_contact import set_contact
 from set_emergency_contact import set_emergency_contact
 from set_payments import set_payments
