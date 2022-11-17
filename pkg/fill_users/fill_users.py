@@ -2,7 +2,7 @@ import os
 from pandas import DataFrame
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
-from tkinter.messagebox import Message
+from tkinter import messagebox
 from set_info.set_dob import set_dob
 from set_info.set_contact import set_contact
 from set_info.set_emergency_contact import set_emergency_contact
@@ -30,6 +30,14 @@ def fill_users(file: DataFrame, browser: Chrome):
       fill_info(row, browser)
 
     searchbar.clear()
+    
+  if len(user_not_found) > 0:
+    for user in user_not_found:
+      messagebox.showinfo(
+        'User Not Found', f'{user} was not found on the website.'
+      )
+  
+  return                                              
     
 def fill_info(row: tuple, browser: Chrome):
   set_dob(row, browser)
