@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 import os
 from dotenv import load_dotenv
 
-def setup():
+def setup() -> Chrome:
   load_dotenv()
   try:
     browser = open_browser()
@@ -19,19 +19,19 @@ def setup():
   return browser
     
 
-def set_browser():
+def set_browser() -> Chrome:
   opts = Options()
   opts.add_argument('--headless')
   service = ChromeService(ChromeDriverManager().install())
   browser = Chrome( service=service)
   return browser
 
-def open_browser():
+def open_browser() -> Chrome:
   browser = set_browser()
   browser.get(os.getenv('LOGIN_URL'))
   return browser
 
-def login(browser):
+def login(browser: Chrome):
   username = browser.find_element(By.ID, 'username')
   if not username:
     return
