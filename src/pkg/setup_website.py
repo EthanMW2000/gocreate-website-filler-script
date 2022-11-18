@@ -23,7 +23,7 @@ def set_browser() -> Chrome:
   opts = Options()
   opts.add_argument('--headless')
   service = ChromeService(ChromeDriverManager().install())
-  browser = Chrome( service=service)
+  browser = Chrome(options=opts, service=service)
   return browser
 
 def open_browser() -> Chrome:

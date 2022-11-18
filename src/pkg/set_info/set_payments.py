@@ -1,5 +1,5 @@
 import datetime
-
+import time
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import Select
 def set_payments(browser: Chrome):
   browser.find_element(By.XPATH, "//a[@aria-controls='payments']").click()
   browser.find_element(By.XPATH, "//button[@data-target='#new_subscription_modal']").click()
+  time.sleep(1)
   
   currentdate = datetime.datetime.now()
   startdate = browser.find_element(By.NAME, 'start')
@@ -27,14 +28,14 @@ def set_payments(browser: Chrome):
   
   amount = browser.find_element(By.NAME, 'amount')
   amount.send_keys('0')
-  total_amount = browser.find_element(By.NAME, 'total_amount')
-  amount.send_keys('0')
+  total = browser.find_element(By.NAME, 'amount')
+  total.send_keys('0')
   
   auxiliary = browser.find_element(By.NAME, 'auxiliary')
   auxiliary.send_keys(f'WSU Student Free Membership {currentdate.strftime("%m/%d/%Y")} - Admin Script')
   
   browser.find_element(By.XPATH,
-    "(//button[@type='submit' and contains(., 'Save Changes')])[4]"
+    "(//button[@type='submit' and contains(., 'Save changes')])[4]"
   ).click()
   
   return

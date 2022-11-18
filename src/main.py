@@ -8,7 +8,7 @@ from tkinter import messagebox
 def main():
   filepath = open_file()
   if not filepath:
-    return messagebox.Message('No File Selected', 'No file was selected.')
+    return messagebox.showerror('No File Selected', 'No file was selected.')
   parsedfile = parse_excel(filepath)
   browser = setup()
   fill_users(parsedfile, browser)
