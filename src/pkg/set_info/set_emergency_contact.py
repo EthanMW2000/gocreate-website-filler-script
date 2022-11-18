@@ -1,6 +1,7 @@
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from pkg.set_info.state_dictionary import states_dict
 
 def set_emergency_contact(row: tuple, browser: Chrome):
   if row[1][
@@ -31,6 +32,8 @@ def set_emergency_contact(row: tuple, browser: Chrome):
   
   state = Select(browser.find_element(By.NAME, 'emergency_state_1'))
   contact_state = row[1]['Emergency Contact 1 - State'][:]
+  if not contact_state.length > 2:
+    contact_state = states_dict[contact_state]
   state.select_by_value(contact_state)
   
   zipcode = browser.find_element(By.NAME, 'emergency_zip_1')
