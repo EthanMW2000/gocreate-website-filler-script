@@ -14,5 +14,3 @@ def main():
   fill_users(parsedfile, browser)
   
   return  
-
-main()
