@@ -1,7 +1,7 @@
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from pkg.set_info.state_dictionary import states_dict
+from src.pkg.set_info.state_dictionary import states_dict
 import time
 
 def set_emergency_contact(row: tuple, browser: Chrome):
