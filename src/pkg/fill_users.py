@@ -4,12 +4,11 @@ from pandas import DataFrame
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from tkinter import messagebox
-from pkg.set_info.set_dob import set_dob
-from pkg.set_info.set_contact import set_contact
-from pkg.set_info.set_emergency_contact import set_emergency_contact
-from pkg.set_info.set_payments import set_payments
-from pkg.set_info.set_comment import set_comment
-from selenium.webdriver.common.alert import Alert
+from src.pkg.set_info.set_dob import set_dob
+from src.pkg.set_info.set_contact import set_contact
+from src.pkg.set_info.set_emergency_contact import set_emergency_contact
+from src.pkg.set_info.set_payments import set_payments
+from src.pkg.set_info.set_comment import set_comment
 
 
 def fill_users(file: DataFrame, browser: Chrome):
@@ -50,8 +49,8 @@ def fill_users(file: DataFrame, browser: Chrome):
         'User Not Found', f'{user} was not found on the website.'
       )
   
-  return                                              
-    
+  return
+
 def fill_info(row: tuple, browser: Chrome):
   set_dob(row, browser)
   time.sleep(1)
